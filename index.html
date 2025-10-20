@@ -1,22 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JP Davalos Portfolio</title>
+    <title>JP Davalos - Home</title>
 </head>
+
 <body>
     <header>
-        <h1>JP Davalos</h1>
         <nav>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="./about.html">About</a></li>
+                <li><a href="./projects.html">Projects</a></li>
+                <li><a href="#">Contact</a></li>
             </ul>
         </nav>
     </header>
-    <main></main>
-    <footer></footer>
+    <main>
+        <p>Hi there! My name is</p>
+        <h1>JP Davalos</h1>
+        <p>And I am a <u>software engineer</u></p>
+        <p><a href="./about.html">Learn more about me</a></p>
+    </main>
+    <footer>
+        <dialog id="contactDialog" open>
+            <form method="post" action="/send-message">
+                <fieldset>
+                    <legend>Let's get in touch</legend>
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required />
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                        required></textarea>
+
+                    <div class="form-actions">
+                        <button type="submit">Send Message</button>
+                        <button type="button"
+                        >Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </dialog>
+
+        <span>Copyright &copy; 2025 JP Davalos</span>
+    </footer>
+    <hello-world></hello-world>
+    <noscript><p>JavaScript is required for this site to function properly.</p></noscript>
+    <script>
+        class HelloWorld extends HTMLElement {
+            constructor() {
+                super();
+                // Prevent any visible output
+                this.style.display = "none";
+            }
+
+            connectedCallback() {
+                console.log("Hello World!");
+            }
+        }
+
+        // Define the element
+        customElements.define("hello-world", HelloWorld);
+    </script>
 </body>
+
 </html>

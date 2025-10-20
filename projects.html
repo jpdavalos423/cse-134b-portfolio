@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP Davalos - Projects</title>
+    <style>
+        project-card {
+            display: block;
+            border: 1px solid #ccc;
+            width: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="./about.html">About</a></li>
+            <li><b><a href="./projects.html">Projects</a></b></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <article>
+        <h2>My Work</h2>
+
+        <project-card title="PokeCollect" description="A Pokemon card collection tracker that allows users to manage their collection, view card details, and view market prices. Developed as a team using Agile principles and integrates with the Pokemon TCG API.
+" live-url="https://cse110-sp25-group20.github.io/cse110-sp25-group20/"
+            repo-url="https://github.com/cse110-sp25-group20/Repo-of-Truth"
+            image="pokecollect-preview.webp"></project-card>
+
+        <br>
+
+        <project-card title="DSA Visualizer" description="Developing an interactive tool to help students learn data structures and algorithms through step-by-step visuals. Includes algorithms such as Bubble Sort and Merge Sort and includes various data structures.
+" repo-url="https://github.com/jpdavalos423/sorting-algorithms" image="algorithm-preview.webp"></project-card>
+        
+        <br>
+
+        <project-card title="Now Playing Display" description="Real time display of currently playing song specifically optimized to display on RaspberryPi. Uses Spotify API to fetch user information and handles authentication process.
+" repo-url="https://github.com/jpdavalos423/spotify-now-playing" image="spotify-preview.webp"></project-card>
+
+    </article>
+
+    <footer>
+        <dialog id="contactDialog" open>
+            <form method="post" action="/send-message">
+                <fieldset>
+                    <legend>Let's get in touch</legend>
+
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your name" required />
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Write your message here..."
+                        required></textarea>
+
+                    <div class="form-actions">
+                        <button type="submit">Send Message</button>
+                        <button type="button"
+                        >Cancel</button>
+                    </div>
+                </fieldset>
+            </form>
+        </dialog>
+    </footer>
+
+    <script>class ProjectCard extends HTMLElement {
+            connectedCallback() {
+                const title = this.getAttribute('title') || 'Untitled Project';
+                const description = this.getAttribute('description') || '';
+                const image = this.getAttribute('image') || '';
+                const liveUrl = this.getAttribute('live-url') || '#';
+                const repoUrl = this.getAttribute('repo-url') || '#';
+
+                this.innerHTML = `
+
+              <img src="${image}" alt="Project Image" width=300 />
+              <section class="project-content">
+                <h3>${title}</h3>
+                <p>${description}</p>
+                <div class="project-links">
+                  <a href="${liveUrl}" aria-label="Link to live site">Live Site</a>
+                  <a href="${repoUrl}" aria-label="Link to GitHub repo">GitHub Repo</a>
+                </div>
+              </section>
+
+          `;
+            }
+        }
+
+        customElements.define('project-card', ProjectCard);</script>
+</body>
+
+</html>
